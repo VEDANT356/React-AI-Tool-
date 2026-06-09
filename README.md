@@ -28,3 +28,9 @@ It provides a fast development setup with Hot Module Replacement (HMR).
 ### Install dependencies
 ```bash
 npm install
+
+
+# 👨‍💻 AUTHOR
+
+**Vedant Kotkar**
+Computer Science Student | Frontend Developer
