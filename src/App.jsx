@@ -48,8 +48,30 @@ function App() {
 
   return (
     <div className='grid grid-cols-5 h-screen text-center'>
-      <div className='col-span-1 bg-zinc-800'></div>
+<div className='col-span-1 bg-zinc-800 text-white p-4'>
+  <h1 className='text-2xl font-bond'> AI Chatbot </h1>
+  <button
+    onClick={() => setResult([])}
+    className='mt-4 bg-red-500 px-4 py-2 rounded'
+  >
+    Clear Chat
+  </button>
 
+  <h1 className='text-xl font-bold mb-4'>
+    Recent Chats
+  </h1>
+
+  {
+    result.map((item, index) => (
+      <div
+        key={index}
+        className='bg-zinc-700 p-2 mb-2 rounded text-sm truncate'
+      >
+        {item.question}
+      </div>
+    ))
+  }
+</div>
       <div className='col-span-4'>
         <div className='container h-110 text-white p-4 overflow-y-auto'>
 
