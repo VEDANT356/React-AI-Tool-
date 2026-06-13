@@ -13,6 +13,8 @@ function App() {
   });
 
   const askQuestion = async () => {
+    if (!question.trim()) return;
+
     setLoading(true);
 
     try {
@@ -21,7 +23,7 @@ function App() {
         contents: question,
       });
   
-      setResult([...result, response.text]);setResult([
+      setResult([
   ...result,
   {
     question: question,
