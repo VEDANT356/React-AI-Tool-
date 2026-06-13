@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { GoogleGenAI } from "@google/genai";
 import './App.css'
 import Answer from './components/Answers';
+
 
 function App() {
   const [question, setQuestion] = useState('');
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const savedChats = localStorage.getItem("chats");
+    if (savedChats) {
+      setResult(JSON.parse(savedChats));
+    }
+  }, []);
+  
 
   const ai = new GoogleGenAI({
     apiKey: import.meta.env.VITE_GEMINI_API_KEY,
@@ -48,8 +57,8 @@ function App() {
 
   return (
     <div className='grid grid-cols-5 h-screen text-center'>
-<div className='col-span-1 bg-zinc-800 text-white p-4'>
-  <h1 className='text-2xl font-bond'> AI Chatbot </h1>
+      <div className='col-span-1 bg-zinc-800 text-white p-4'>
+  <h1 className='text-2xl font-bold'> AI Chatbot </h1>
   <button
     onClick={() => setResult([])}
     className='mt-4 bg-red-500 px-4 py-2 rounded'
@@ -102,7 +111,7 @@ function App() {
           />
 
           <button onClick={askQuestion} disabled={loading} className="px-4 w-24">
-            {loading  ? "thinking ..." : "Ask"}
+            {loading  ? "🤖 thinking...." : "Ask"}
           </button>
         </div>
       </div>
