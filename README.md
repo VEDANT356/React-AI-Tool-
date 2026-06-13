@@ -34,3 +34,5 @@ npm install
 
 **Vedant Kotkar**
 Computer Science Student | Frontend Developer
+
+Updated after email verification
