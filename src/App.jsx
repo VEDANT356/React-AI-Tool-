@@ -9,13 +9,16 @@ function App() {
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const savedChats = localStorage.getItem("chats");
+  useEffect (() => {
+    const savedChats = localStorage. getItem("chats");
     if (savedChats) {
-      setResult(JSON.parse(savedChats));
+      setResult(JSON.parse(savedChats))
     }
   }, []);
-  
+
+  useEffect(() => {
+    localStorage.setItem('chats', JSON.stringify(result));
+  }, [result]);
 
   const ai = new GoogleGenAI({
     apiKey: import.meta.env.VITE_GEMINI_API_KEY,
@@ -60,14 +63,17 @@ function App() {
       <div className='col-span-1 bg-zinc-800 text-white p-4'>
   <h1 className='text-2xl font-bold'> AI Chatbot </h1>
   <button
-    onClick={() => setResult([])}
+    onClick={() =>{
+        setResult([]);
+      localStorage.removeItem("chats");
+    }}
     className='mt-4 bg-red-500 px-4 py-2 rounded'
   >
     Clear Chat
   </button>
 
   <h1 className='text-xl font-bold mb-4'>
-    Recent Chats
+    Recent 
   </h1>
 
   {
@@ -119,4 +125,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;  
