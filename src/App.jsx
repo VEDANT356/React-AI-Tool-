@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect , useRef } from 'react'
 import { GoogleGenAI } from "@google/genai";
 import './App.css'
 import Answer from './components/Answers';
@@ -9,6 +9,8 @@ function App() {
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const chatEndRef = useRef(null);
+
   useEffect (() => {
     const savedChats = localStorage. getItem("chats");
     if (savedChats) {
@@ -18,6 +20,12 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('chats', JSON.stringify(result));
+  }, [result]);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({
+      behavior: 'smooth',
+    });
   }, [result]);
 
   const ai = new GoogleGenAI({
@@ -39,7 +47,8 @@ function App() {
   ...result,
   {
     question: question,
-    answer: response.text
+    answer: response.text,
+    time : new Date().toLocaleTimeString()
   }
 ]);
       setQuestion('');
@@ -50,7 +59,8 @@ function App() {
   ...result,
   {
     question: question,
-    answer: "Gemini server busy hai. Thodi der baad try karo."
+    answer: "Gemini server busy hai. Thodi der baad try karo." ,
+    time : new Date().toLocaleTimeString()
   }
 ]);
     }
@@ -95,10 +105,12 @@ function App() {
     <Answer
       question={item.question}
       answer={item.answer}
+      time={item.time}
       key={index}
     />
   ))
 } 
+<div ref={chatEndRef}></div>
 
         </div>
 

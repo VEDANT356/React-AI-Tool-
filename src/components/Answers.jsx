@@ -1,6 +1,6 @@
 import ReactMarkdown from "react-markdown";
 
-const Answer = ({ question, answer }) => {
+const Answer = ({ question, answer, time }) => {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(answer);
@@ -38,6 +38,10 @@ const Answer = ({ question, answer }) => {
           <ReactMarkdown>
             {answer}
           </ReactMarkdown>
+        </div>
+
+        <div className="text-xs text-zinc-400 mt-1">
+          {time}
         </div>
 
 
