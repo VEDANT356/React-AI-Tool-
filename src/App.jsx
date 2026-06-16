@@ -2,7 +2,7 @@ import { useState, useEffect , useRef } from 'react'
 import { GoogleGenAI } from "@google/genai";
 import './App.css'
 import Answer from './components/Answers';
-
+import { SiOpenai } from "react-icons/si";
 
 function App() {
   const [question, setQuestion] = useState('');
@@ -95,28 +95,39 @@ for (let i=0; i< fullAnswer.length; i++){
   return (
     <div className='grid grid-cols-5 h-screen text-center'>
       <div className='col-span-1 bg-zinc-800 text-white p-4'>
-  <h1 className='text-2xl font-bold'> AI Chatbot </h1>
+<div className="flex items-center gap-2 mb-4">
+  <SiOpenai size={28} />
+  <h1 className="text-2xl font-bold">
+    SmartTalk
+  </h1>
+</div>
+
+<button
+  onClick={() => setResult([])}
+  className='w-full bg-zinc-700 p-2 rounded mb-3 hover:bg-zinc-600'>
+  New Chat
+</button>
+
   <button
     onClick={() =>{
         setResult([]);
       localStorage.removeItem("chats");
     }}
-    className='mt-4 bg-red-500 px-4 py-2 rounded'
-  >
+    className='mt-4 bg-red-500 px-4 py-2 rounded'>
     Clear Chat
   </button>
 
-  <h1 className='text-xl font-bold mb-4'>
-    Recent 
+  <h1 className='text-xl font-bold mb-4 mb-3 text-zinc-300'>
+    Recents Chats
   </h1>
 
   {
     result.map((item, index) => (
       <div
         key={index}
-        className='bg-zinc-700 p-2 mb-2 rounded text-sm truncate cursor-pointer hover:bg-zinc-600'
-      >
-        {item.question}
+        className='bg-zinc-700 p-3 mb-2 rounded text-sm truncate cursor-pointer hover:bg-zinc-600 transition-all duration-200'>
+
+          💬 {item.question}
       </div>
     ))
   }
@@ -149,11 +160,11 @@ for (let i=0; i< fullAnswer.length; i++){
               }
             }}
             className='w-full h-full p-3 outline-none'
-            placeholder='Ask me Anything...'
+            placeholder='Ask SmartTalk...'
           />
 
           <button onClick={askQuestion} disabled={loading} className="px-4 w-24">
-            {loading  ? "🤖 thinking...." : "Ask"}
+            {loading  ? " thinking...." : "Ask"}
           </button>
         </div>
       </div>

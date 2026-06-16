@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const Answer = ({ question, answer, time }) => {
 
@@ -35,7 +36,7 @@ const Answer = ({ question, answer, time }) => {
         </div>
 
         <div className="inline-block bg-zinc-700 p-3 rounded-lg">
-          <ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {answer}
           </ReactMarkdown>
         </div>
