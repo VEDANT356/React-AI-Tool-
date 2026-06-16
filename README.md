@@ -1,38 +1,68 @@
-# 🤖 React Chatbot (Vite + React)
+# 🤖 SmartTalk AI
 
-This is a simple AI Chatbot frontend built using React and Vite.  
-It provides a fast development setup with Hot Module Replacement (HMR).
+SmartTalk AI is an AI-powered chatbot built using React, Vite, Tailwind CSS, and Google's Gemini API.
 
----
+## 🚀 What I Built
 
-## 🚀 Tech Stack
+During this project, I implemented:
 
-- React
-- Vite
-- JavaScript (or TypeScript if you add later)
-- ESLint
+* Gemini AI integration
+* Chat history using LocalStorage
+* Recent chats sidebar
+* Auto-scroll to latest messages
+* Copy response feature
+* Markdown rendering support
+* Typing animation effect
+* New Chat functionality
+* Custom SmartTalk branding
 
----
+## ✨ Features
 
-## ⚡ Features
+* AI-powered conversations
+* Persistent chat history
+* Clean and responsive UI
+* Markdown support
+* Real-time response streaming effect
+* Copy AI responses
 
-- Fast and lightweight UI
-- Chat interface (user + bot messages)
-- API integration ready (OpenAI / custom backend)
-- Responsive design (mobile + desktop)
+## 🛠️ Tech Stack
 
----
+* React
+* Vite
+* Tailwind CSS
+* Gemini API
+* React Markdown
+* LocalStorage
 
-## 📦 Getting Started
+## 📸 Screenshots
+<img width="1900" height="883" alt="image" src="https://github.com/user-attachments/assets/df0427e8-a548-43a1-bfe4-139e2235c8d5" />
 
-### Install dependencies
+### Home Screen
+
+<img width="969" height="765" alt="Screenshot 2026-06-13 123211" src="https://github.com/user-attachments/assets/b12785a7-5c8d-4b70-ab40-4e9642b6ff74" />
+
+
+### AI Response Example
+
+![SmartTalk Chat](./screenshots/smarttalk-chat.png)
+
+## 🚀 Installation
+
 ```bash
+git clone <repo-url>
+cd smarttalk-ai
 npm install
+npm run dev
+```
 
+## 🔮 Future Improvements
 
-# 👨‍💻 AUTHOR
+* Multiple Chat Sessions
+* Sidebar Chat Selection
+* File Upload Support
+* Better Code Block Styling
+* Theme Switcher
 
-**Vedant Kotkar**
-Computer Science Student | Frontend Developer
+## 👨‍💻 Author
 
-Updated after email verification
+Vedant Kotkar
