@@ -8,7 +8,6 @@ function App() {
   const [question, setQuestion] = useState('');
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
-
   const chatEndRef = useRef(null);
 
   useEffect (() => {
@@ -43,16 +42,41 @@ function App() {
         contents: question,
       });
   
+      const fullAnswer = response.text;
+
+      console.log("full Answer :", fullAnswer)
+
       setResult([
   ...result,
   {
     question: question,
-    answer: response.text,
+    answer: "",
     time : new Date().toLocaleTimeString()
   }
 ]);
-      setQuestion('');
-    } catch (error) {
+
+let currentText = "";
+
+for (let i=0; i< fullAnswer.length; i++){
+  currentText +=  fullAnswer[i];
+
+  setResult((prev) => {
+    const updated = [...prev];
+
+    updated[updated.length -1] ={
+      ...updated[updated.length -1],
+      answer: currentText
+    };
+
+    return updated;
+    });
+
+    await new Promise((resolve) => setTimeout (resolve, 10 ));
+  }
+
+    setQuestion('');
+
+}catch (error) {
       console.error(error);
 
       setResult([
@@ -90,7 +114,7 @@ function App() {
     result.map((item, index) => (
       <div
         key={index}
-        className='bg-zinc-700 p-2 mb-2 rounded text-sm truncate'
+        className='bg-zinc-700 p-2 mb-2 rounded text-sm truncate cursor-pointer hover:bg-zinc-600'
       >
         {item.question}
       </div>
@@ -136,5 +160,4 @@ function App() {
     </div>
   );
 }
-
 export default App;  
