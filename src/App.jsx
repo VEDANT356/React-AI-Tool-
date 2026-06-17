@@ -94,9 +94,9 @@ for (let i=0; i< fullAnswer.length; i++){
 
   return (
     <div className='grid grid-cols-1 md:grid-cols-5 h-screen text-center'>
-      <div className='col-span-1 bg-zinc-800 text-white p-4 md:block'>
-
-<div className="flex items-center gap-1 mb-4">
+    <div className='hidden md:block col-span-1 bg-zinc-800 text-white p-4'>
+    <div className="flex items-center gap-1 mb-4">
+      
   <img
     src={logo}
     alt="SmartTalk Logo"
