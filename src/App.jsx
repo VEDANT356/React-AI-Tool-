@@ -2,7 +2,7 @@ import { useState, useEffect , useRef } from 'react'
 import { GoogleGenAI } from "@google/genai";
 import './App.css'
 import Answer from './components/Answers';
-import { SiOpenai } from "react-icons/si";
+import logo from "./assets/smarttalk-logo.png";
 
 function App() {
   const [question, setQuestion] = useState('');
@@ -95,9 +95,15 @@ for (let i=0; i< fullAnswer.length; i++){
   return (
     <div className='grid grid-cols-5 h-screen text-center'>
       <div className='col-span-1 bg-zinc-800 text-white p-4'>
-<div className="flex items-center gap-2 mb-4">
-  <SiOpenai size={28} />
-  <h1 className="text-2xl font-bold">
+
+<div className="flex items-center gap-1 mb-4">
+  <img
+    src={logo}
+    alt="SmartTalk Logo"
+    className="w-25 h-25 "
+  />
+
+  <h1 className="text-3xl font-bold">
     SmartTalk
   </h1>
 </div>
@@ -114,7 +120,7 @@ for (let i=0; i< fullAnswer.length; i++){
       localStorage.removeItem("chats");
     }}
     className='mt-4 bg-red-500 px-4 py-2 rounded'>
-    Clear Chat
+    Clear Chats
   </button>
 
   <h1 className='text-xl font-bold mb-4 mb-3 text-zinc-300'>
