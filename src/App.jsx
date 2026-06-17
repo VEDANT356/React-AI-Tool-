@@ -93,8 +93,8 @@ for (let i=0; i< fullAnswer.length; i++){
   };
 
   return (
-    <div className='grid grid-cols-5 h-screen text-center'>
-      <div className='col-span-1 bg-zinc-800 text-white p-4'>
+    <div className='grid grid-cols-1 md:grid-cols-5 h-screen text-center'>
+      <div className='col-span-1 bg-zinc-800 text-white p-4 md:block'>
 
 <div className="flex items-center gap-1 mb-4">
   <img
@@ -154,8 +154,7 @@ for (let i=0; i< fullAnswer.length; i++){
 <div ref={chatEndRef}></div>
 
         </div>
-
-        <div className='bg-zinc-800 w-1/2 p-1 text-white m-auto rounded-4xl border border-zinc-700 flex h-16'>
+        <div className='bg-zinc-800 w-[95%] md:w-1/2 p-1 text-white m-auto rounded-4xl border border-zinc-700 flex h-16'>
           <input
             type="text"
             value={question}
