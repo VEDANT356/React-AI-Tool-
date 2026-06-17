@@ -124,7 +124,7 @@ for (let i=0; i< fullAnswer.length; i++){
   </button>
 
   <h1 className='text-xl font-bold mb-4 mb-3 text-zinc-300'>
-    Recents Chats
+    Recent Chats
   </h1>
 
   {
