@@ -9,6 +9,7 @@ function App() {
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
+  const [showSidebar , setShowsidebar] =useState(false);
 
   useEffect (() => {
     const savedChats = localStorage. getItem("chats");
@@ -83,7 +84,7 @@ for (let i=0; i< fullAnswer.length; i++){
   ...result,
   {
     question: question,
-    answer: "Gemini server busy hai. Thodi der baad try karo." ,
+    answer: "You Hit Your Free Plan Limit ! please Try Again Later" ,
     time : new Date().toLocaleTimeString()
   }
 ]);
@@ -94,9 +95,24 @@ for (let i=0; i< fullAnswer.length; i++){
 
   return (
     <div className='grid grid-cols-1 md:grid-cols-5 h-screen text-center'>
-    <div className='hidden md:block col-span-1 bg-zinc-800 text-white p-4'>
-    <div className="flex items-center gap-1 mb-4">
-      
+    <div
+  className={`
+    ${showSidebar ? "block" : "hidden"}
+    md:block 
+
+    fixed md:static
+    top-0 left-0
+    h-full
+    w-72
+
+    
+    bg-zinc-800
+    text-white
+    p-4
+    z-50
+  `}
+>
+    <div className="flex items-center gap-1 mb-4"> 
   <img
     src={logo}
     alt="SmartTalk Logo"
@@ -132,13 +148,21 @@ for (let i=0; i< fullAnswer.length; i++){
       <div
         key={index}
         className='bg-zinc-700 p-3 mb-2 rounded text-sm truncate cursor-pointer hover:bg-zinc-600 transition-all duration-200'>
-
           💬 {item.question}
       </div>
     ))
   }
 </div>
+
+
+
       <div className='col-span-4'>
+        <button
+  className="md:hidden bg-zinc-800 text-white p-2 m-2 rounded"
+  onClick={() => setShowsidebar(!showSidebar)}
+>
+  ☰
+</button>
         <div className='container h-110 text-white p-4 overflow-y-auto'>
 
           {
