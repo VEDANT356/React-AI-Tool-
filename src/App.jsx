@@ -97,19 +97,17 @@ for (let i=0; i< fullAnswer.length; i++){
     <div className='grid grid-cols-1 md:grid-cols-5 h-screen text-center'>
     <div
   className={`
-    ${showSidebar ? "block" : "hidden"}
-    md:block 
-
+    ${showSidebar ? "translate-x-0" : "-translate-x-full"}
+    md:translate-x-0
     fixed md:static
     top-0 left-0
     h-full
     w-72
-
-    
     bg-zinc-800
     text-white
     p-4
     z-50
+    transition-all duration-300
   `}
 >
     <div className="flex items-center gap-1 mb-4"> 
@@ -154,18 +152,15 @@ for (let i=0; i< fullAnswer.length; i++){
   }
 </div>
 
-
-
-      <div className='col-span-4'>
-        <button
-  className="md:hidden bg-zinc-800 text-white p-2 m-2 rounded"
-  onClick={() => setShowsidebar(!showSidebar)}
->
+<div className='col-span-4 w-full'>
+  <button
+  className="md:hidden fixed top-4 left-4 bg-zinc-800 text-white p-2 m-2 rounded z-50"
+  onClick={() => setShowsidebar(!showSidebar)}>
   ☰
 </button>
-        <div className='container h-110 text-white p-4 overflow-y-auto'>
 
-          {
+<div className='container h-110 text-white p-4 overflow-y-auto'>
+{
   result && result.map((item, index) => (
     <Answer
       question={item.question}
@@ -178,7 +173,19 @@ for (let i=0; i< fullAnswer.length; i++){
 <div ref={chatEndRef}></div>
 
         </div>
-        <div className='bg-zinc-800 w-[95%] md:w-1/2 p-1 text-white m-auto rounded-4xl border border-zinc-700 flex h-16'>
+        <div className='
+        bg-zinc-800
+        w-[95%] md:w-1/2
+          p-1 
+          text-white 
+          rounded-4xl
+            border border-zinc-700 
+            flex h-16
+
+            fixed md:Static
+            bottom-4 left-1/2
+            -translate-x-1/2 md:translate-x-0
+        '>
           <input
             type="text"
             value={question}
