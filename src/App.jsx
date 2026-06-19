@@ -107,10 +107,18 @@ for (let i=0; i< fullAnswer.length; i++){
     text-white
     p-4
     z-50
+    overflow-y-auto
     transition-all duration-300
   `}
 >
-  
+<div className="flex justify-end md:hidden">
+  <button
+    className="text-2xl"
+    onClick={() => setShowsidebar(false)}
+  >
+    ✕
+  </button>
+</div>
 
 <button
   onClick={() => setResult([])}
@@ -147,8 +155,9 @@ for (let i=0; i< fullAnswer.length; i++){
 <div className="md:hidden flex items-center gap-3 p-4 text-white bg-zinc-900">
     <button
     className="bg-zinc-800 p-2 rounded"
-    onClick={() => setShowsidebar(!showSidebar)}
-  >
+    onClick={() => {
+      setShowsidebar(!showSidebar)}}
+      >
     ☰
   </button>
 
@@ -178,16 +187,15 @@ for (let i=0; i< fullAnswer.length; i++){
         </div>
         <div className='
         bg-zinc-800
-        w-[95%] md:w-1/2
+        w-[95%] 
           p-1 
           text-white 
           rounded-4xl
-            border border-zinc-700 
-            flex h-16
-
-            fixed md:static
-            bottom-4 left-1/2
-            -translate-x-1/2  md:translate-x-0
+          border border-zinc-700 
+          flex h-16
+          fixed 
+          bottom-4 left-1/2
+          -translate-x-1/2  
         '>
           <input
             type="text"
