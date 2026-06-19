@@ -110,17 +110,7 @@ for (let i=0; i< fullAnswer.length; i++){
     transition-all duration-300
   `}
 >
-    <div className="flex items-center gap-1 mb-4"> 
-  <img
-    src={logo}
-    alt="SmartTalk Logo"
-    className="w-25 h-25 "
-  />
-
-  <h1 className="text-3xl font-bold">
-    SmartTalk
-  </h1>
-</div>
+  
 
 <button
   onClick={() => setResult([])}
@@ -152,15 +142,28 @@ for (let i=0; i< fullAnswer.length; i++){
   }
 </div>
 
-<div className='col-span-4 w-full'>
-  <button
-  className="md:hidden fixed top-4 left-4 bg-zinc-800 text-white p-2 m-2 rounded z-50"
-  onClick={() => setShowsidebar(!showSidebar)}>
-  ☰
-</button>
 
-<div className='container h-110 text-white p-4 overflow-y-auto'>
-{
+  <div className='col-span-4 w-full'>
+<div className="md:hidden flex items-center gap-3 p-4 text-white bg-zinc-900">
+    <button
+    className="bg-zinc-800 p-2 rounded"
+    onClick={() => setShowsidebar(!showSidebar)}
+  >
+    ☰
+  </button>
+
+  <img
+    src={logo}
+    alt="SmartTalk Logo"
+    className="w-12 h-12"
+  />
+
+  <h1 className="text-3xl font-bold">
+    SmartTalk
+  </h1>
+</div>
+
+<div className='h-[calc(100vh-140px)] overflow-y-auto text-white p-4 pb-24'>  {
   result && result.map((item, index) => (
     <Answer
       question={item.question}
@@ -182,9 +185,9 @@ for (let i=0; i< fullAnswer.length; i++){
             border border-zinc-700 
             flex h-16
 
-            fixed md:Static
+            fixed md:static
             bottom-4 left-1/2
-            -translate-x-1/2 md:translate-x-0
+            -translate-x-1/2  md:translate-x-0
         '>
           <input
             type="text"
