@@ -39,7 +39,7 @@ function App() {
 
     try {
       const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.5-flash",
         contents: question,
       });
   
@@ -94,22 +94,31 @@ for (let i=0; i< fullAnswer.length; i++){
   };
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-5 h-screen text-center'>
+
+    <div className='flex h-screen overflow-hidden'>
+      {showSidebar && (
+      <div
+        className="fixed inset-0 bg-black/50 z-40 md:hidden"
+        onClick={() => setShowsidebar(false)}
+      />
+    )}
     <div
   className={`
-    ${showSidebar ? "translate-x-0" : "-translate-x-full"}
-    md:translate-x-0
-    fixed md:static
-    top-0 left-0
-    h-full
-    w-72
-    bg-zinc-800
-    text-white
-    p-4
-    z-50
-    overflow-y-auto
-    transition-all duration-300
-  `}
+  w-72
+  bg-zinc-800
+  text-white
+  p-4
+  h-full
+  overflow-y-auto
+  transition-transform duration-300
+
+  fixed md:static
+  top-0 left-0
+  z-50
+
+  ${showSidebar ? "translate-x-0" : "-translate-x-full"}
+  md:translate-x-0
+`}
 >
 <div className="flex justify-end md:hidden">
   <button
@@ -151,26 +160,39 @@ for (let i=0; i< fullAnswer.length; i++){
 </div>
 
 
-  <div className='col-span-4 w-full'>
+<div className='flex-1 min-w-0 overflow-hidden'>
+
+<div className="hidden md:flex items-center gap-3 p-4 text-white bg-zinc-900">
+  <img
+    src={logo}
+    alt="SmartTalk Logo"
+    className="w-12 h-12"
+  />
+  <h1 className="text-3xl font-bold">
+    SmartTalk
+  </h1>
+</div>
+
+
 <div className="md:hidden flex items-center gap-3 p-4 text-white bg-zinc-900">
-    <button
+  <button
     className="bg-zinc-800 p-2 rounded"
-    onClick={() => {
-      setShowsidebar(!showSidebar)}}
-      >
+    onClick={() => setShowsidebar(!showSidebar)}
+  >
     ☰
   </button>
 
   <img
     src={logo}
     alt="SmartTalk Logo"
-    className="w-12 h-12"
+    className="w-10 h-10"
   />
 
-  <h1 className="text-3xl font-bold">
+  <h1 className="text-2xl font-bold">
     SmartTalk
   </h1>
 </div>
+
 
 <div className='h-[calc(100vh-140px)] overflow-y-auto text-white p-4 pb-24'>  {
   result && result.map((item, index) => (
@@ -187,7 +209,7 @@ for (let i=0; i< fullAnswer.length; i++){
         </div>
         <div className='
         bg-zinc-800
-        w-[95%] 
+        w-[95%] md:w-[70%]
           p-1 
           text-white 
           rounded-4xl
@@ -196,6 +218,7 @@ for (let i=0; i< fullAnswer.length; i++){
           fixed 
           bottom-4 left-1/2
           -translate-x-1/2  
+          z-30
         '>
           <input
             type="text"
