@@ -9,7 +9,7 @@ function App() {
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
-  const [showSidebar , setShowsidebar] =useState(false);
+  const [showSidebar , setShowsidebar] =useState(true);
 
   useEffect (() => {
     const savedChats = localStorage. getItem("chats");
@@ -38,10 +38,14 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: question,
-      });
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: question,
+  });
+
+  const fullAnswer = response.text;
+
+  console.log("full Answer :", fullAnswer);
   
       const fullAnswer = response.text;
 
@@ -112,15 +116,15 @@ for (let i=0; i< fullAnswer.length; i++){
   overflow-y-auto
   transition-transform duration-300
 
-  fixed md:static
+  fixed 
   top-0 left-0
   z-50
 
   ${showSidebar ? "translate-x-0" : "-translate-x-full"}
-  md:translate-x-0
+
 `}
 >
-<div className="flex justify-end md:hidden">
+<div className="flex justify-end ">
   <button
     className="text-2xl"
     onClick={() => setShowsidebar(false)}
@@ -163,7 +167,13 @@ for (let i=0; i< fullAnswer.length; i++){
 <div className='flex-1 min-w-0 overflow-hidden'>
 
 <div className="hidden md:flex items-center gap-3 p-4 text-white bg-zinc-900">
-  <img
+  <button
+    className="bg-zinc-800 p-2 rounded"
+    onClick={() => setShowsidebar(!showSidebar)}
+  >
+    ☰
+  </button>
+    <img
     src={logo}
     alt="SmartTalk Logo"
     className="w-12 h-12"
@@ -185,7 +195,7 @@ for (let i=0; i< fullAnswer.length; i++){
   <img
     src={logo}
     alt="SmartTalk Logo"
-    className="w-10 h-10"
+    className="w-12 h-12"
   />
 
   <h1 className="text-2xl font-bold">
@@ -207,19 +217,22 @@ for (let i=0; i< fullAnswer.length; i++){
 <div ref={chatEndRef}></div>
 
         </div>
-        <div className='
-        bg-zinc-800
-        w-[95%] md:w-[70%]
-          p-1 
-          text-white 
-          rounded-4xl
-          border border-zinc-700 
-          flex h-16
-          fixed 
-          bottom-4 left-1/2
-          -translate-x-1/2  
-          z-30
-        '>
+        <div
+        className='
+          bg-zinc-800
+        w-[90%]
+        max-w-3xl
+        p-1
+    text-white
+    rounded-4xl
+    border border-zinc-700
+    flex h-16
+    fixed
+    bottom-4 left-1/2
+    -translate-x-1/2
+    z-30
+  '
+>
           <input
             type="text"
             value={question}
@@ -241,4 +254,4 @@ for (let i=0; i< fullAnswer.length; i++){
     </div>
   );
 }
-export default App;  
+export default App;
