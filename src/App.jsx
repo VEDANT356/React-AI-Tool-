@@ -47,9 +47,6 @@ function App() {
 
   console.log("full Answer :", fullAnswer);
   
-      const fullAnswer = response.text;
-
-      console.log("full Answer :", fullAnswer)
 
       setResult([
   ...result,

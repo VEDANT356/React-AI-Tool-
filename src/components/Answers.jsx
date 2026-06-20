@@ -1,3 +1,6 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 const Answer = ({ question, answer, time }) => {
 
   const copyToClipboard = () => {
@@ -32,9 +35,11 @@ const Answer = ({ question, answer, time }) => {
           🤖
         </div>
 
-        <div className="inline-block bg-zinc-700 p-3 rounded-lg whitespace-pre-wrap">
-          {answer}
-        </div>
+      <div className="inline-block bg-zinc-700 p-3 rounded-lg max-w-[80%]">
+  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+    {answer}
+  </ReactMarkdown>
+</div>
 
         <div className="text-xs text-zinc-400 mt-1">
           {time}
