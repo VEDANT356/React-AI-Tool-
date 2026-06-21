@@ -1,0 +1,169 @@
+# SmartTalk AI Chatbot Project
+
+## Project Name
+
+SmartTalk AI
+
+## Project Overview
+
+SmartTalk AI is an AI-powered chatbot web application built using React.js, Tailwind CSS, and Google's Gemini API.
+
+The application allows users to ask questions and receive AI-generated responses in real time. It also stores chat history locally so conversations remain available even after refreshing the page.
+
+---
+
+## Technologies Used
+
+### Frontend
+
+* React.js
+* Tailwind CSS
+* JavaScript (ES6+)
+* Vite
+
+### API
+
+* Google Gemini API
+
+### Browser Storage
+
+* LocalStorage
+
+---
+
+## Main Features
+
+### AI Chat
+
+Users can ask any question and receive AI-generated responses.
+
+### Typing Effect
+
+AI responses appear character-by-character, creating a realistic chat experience.
+
+### Chat History
+
+All conversations are stored using LocalStorage and remain available after page refresh.
+
+### Responsive Design
+
+The application works on:
+
+* Desktop
+* Tablet
+* Mobile devices
+
+### Sidebar
+
+The sidebar displays previous conversations and allows users to:
+
+* Start a new chat
+* Clear chat history
+
+### Auto Scroll
+
+The chat automatically scrolls to the newest message.
+
+---
+
+## Project Structure
+
+### App.jsx
+
+Main component of the application.
+
+Responsibilities:
+
+* API calls
+* State management
+* Chat history management
+* Sidebar control
+* Input handling
+
+### Answer.jsx
+
+Responsible for displaying:
+
+* User questions
+* AI responses
+* Time stamps
+* Copy button
+
+---
+
+## React Concepts Used
+
+### useState
+
+Used for:
+
+* Question input
+* AI responses
+* Loading state
+* Sidebar state
+
+### useEffect
+
+Used for:
+
+* Saving chats in LocalStorage
+* Loading chats from LocalStorage
+* Auto-scrolling
+
+### useRef
+
+Used to automatically scroll to the latest message.
+
+---
+
+## Challenges Faced
+
+### Responsive Sidebar
+
+Making the sidebar work properly on both mobile and desktop screens.
+
+### Typing Animation
+
+Creating a character-by-character response effect.
+
+### Chat Persistence
+
+Storing and retrieving chat history using LocalStorage.
+
+### API Integration
+
+Connecting Gemini API and handling responses correctly.
+
+---
+
+## Future Improvements
+
+* User Authentication
+* Dark/Light Mode
+* Multiple Chat Sessions
+* Chat Search
+* Voice Input
+* Voice Output
+* File Upload Support
+* Cloud Database Storage
+
+---
+
+## Learning Outcomes
+
+Through this project I learned:
+
+* React Fundamentals
+* React Hooks
+* API Integration
+* State Management
+* LocalStorage
+* Responsive Design
+* Component-Based Architecture
+* Frontend Project Development
+
+---
+
+## Conclusion
+
+SmartTalk AI is a frontend-focused AI chatbot project that demonstrates React development skills, API integration, state management, and responsive UI design.
