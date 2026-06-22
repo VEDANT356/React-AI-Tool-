@@ -63,6 +63,8 @@ npm run dev
 * Better Code Block Styling
 * Theme Switcher
 
-## 👨‍💻 Author
 
-Vedant Kotkar
+# 👨‍💻 AUTHOR
+
+**Vedant Kotkar**
+Computer Science Student | Frontend Developer
