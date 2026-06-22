@@ -42,9 +42,9 @@ During this project, I implemented:
 <img width="969" height="765" alt="Screenshot 2026-06-13 123211" src="https://github.com/user-attachments/assets/b12785a7-5c8d-4b70-ab40-4e9642b6ff74" />
 
 
-### AI Response Example
+## Live Demo :-
 
-![SmartTalk Chat](./screenshots/smarttalk-chat.png)
+https://smart-talk-ai-six.vercel.app/
 
 ## 🚀 Installation
 
