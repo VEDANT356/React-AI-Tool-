@@ -68,3 +68,21 @@ npm run dev
 
 **Vedant Kotkar**
 Computer Science Student | Frontend Developer
+
+#### Skills
+
+* HTML
+* CSS
+* JavaScript
+* React.js
+* API Integration
+* Responsive Web Design
+
+#### Connect With Me
+
+LinkedIn:
+https://www.linkedin.com/in/vedant-kotkar-48976236b/
+
+GitHub:
+https://github.com/VEDANT356
+
