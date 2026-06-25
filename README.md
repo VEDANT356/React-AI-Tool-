@@ -63,7 +63,6 @@ npm run dev
 * Better Code Block Styling
 * Theme Switcher
 
-
 # 👨‍💻 AUTHOR
 
 **Vedant Kotkar**
